@@ -7,7 +7,15 @@ with open("README.md", "r", encoding="utf-8") as f:
 REPO_NAME = "DVC-PROJECT-NLP"
 AUTHOR_USER_NAME = "victen18"
 SRC_REPO = "src"
-LIST_OF_REQUIREMENTS = []
+LIST_OF_REQUIREMENTS = [
+    "tqdm",
+    "dvc",
+    "dvc[s3]",
+    "dvc[gdrive]",
+    "pandas",
+    "numpy",
+    "PyYAML",
+]
 
 
 setup(
@@ -22,5 +30,5 @@ setup(
     packages=[SRC_REPO],
     license="MIT",
     python_requires=">=3.6",
-    install_requires=LIST_OF_REQUIREMENTS
+    install_requires=LIST_OF_REQUIREMENTS,
 )
