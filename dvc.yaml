@@ -55,3 +55,24 @@ stages:
       - train.n_jobs
     outs:
       - artifacts/model/model.pkl
+
+  evaluate:
+    cmd: python src/stage_05_eval.py --config=configs/config.yaml
+    deps:
+      - src/stage_05_eval.py
+      - src/utils/common.py
+      - artifacts/features/test.pkl
+      - configs/config.yaml
+      - artifacts/model/model.pkl
+    metrics:
+      - scores.json:
+          cache: false
+    plots:
+      - prc.json:
+          cache: false
+          x: recall
+          y: precision
+      - roc.json:
+          cache: false
+          x: fpr
+          y: tpr
