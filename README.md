@@ -33,4 +33,6 @@ dvc init
 
 ### STEP 06- commit and push the changes to the remote repository
 
+### Important references
+
 *[DVC Studio home page](https://studio.iterative.ai/)
