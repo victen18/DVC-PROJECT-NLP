@@ -19,7 +19,7 @@ jobs:
         run: 
           #Your ML workflow cmds
           pip install --upgrade pip
-          pip install -r rquirements.txt
+          pip install -r requirements.txt
 
           dvc repro -v 
 
