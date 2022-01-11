@@ -36,3 +36,5 @@ dvc init
 ### Important references
 
 *[DVC Studio home page](https://studio.iterative.ai/)
+
+*[DVC Continuous Machine Learning](https://cml.dev/)
