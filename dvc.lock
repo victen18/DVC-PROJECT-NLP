@@ -23,11 +23,11 @@ stages:
       md5: 1a71ae5b2128bed5ce1f4047d94314cf
       size: 559
     - path: src/stage_01_get_data.py
-      md5: bd7d84bb60f3343130d1ca67919b31fe
-      size: 1635
+      md5: f39c92ab0ce28aadd709cb8d05a951f8
+      size: 1611
     - path: src/utils/common.py
-      md5: d162961d817182441383bdb0e674e685
-      size: 675
+      md5: 4fd1a06f9bac624adfbe138de29ee894
+      size: 941
     outs:
     - path: data/data.xml
       md5: a304afb96060aad90176268345e10355
@@ -42,11 +42,11 @@ stages:
       md5: a304afb96060aad90176268345e10355
       size: 37891850
     - path: src/stage_02_prepare.py
-      md5: 30d67d9cd9ad8d19153d43817fee9eac
-      size: 2157
+      md5: dd056ce766b19ebc95fb72b2e69d093f
+      size: 2131
     - path: src/utils/common.py
-      md5: d162961d817182441383bdb0e674e685
-      size: 675
+      md5: 4fd1a06f9bac624adfbe138de29ee894
+      size: 941
     - path: src/utils/data_mgmt.py
       md5: 0c59a69370b7f6a412388c7f55d951b4
       size: 856
@@ -61,3 +61,38 @@ stages:
     - path: artifacts/prepared/train.tsv
       md5: 3514ce5f1b8c8d976c178e0ad2ae1e78
       size: 16638284
+  featurize:
+    cmd: python src/stage_03_feature.py --config=configs/config.yaml --params=params.yaml
+    deps:
+    - path: artifacts/prepared/test.tsv
+      md5: a0bb558cc0e08269228e02fb57edbdc0
+      size: 7248035
+    - path: artifacts/prepared/train.tsv
+      md5: 3514ce5f1b8c8d976c178e0ad2ae1e78
+      size: 16638284
+    - path: configs/config.yaml
+      md5: 1a71ae5b2128bed5ce1f4047d94314cf
+      size: 559
+    - path: data/data.xml
+      md5: a304afb96060aad90176268345e10355
+      size: 37891850
+    - path: src/stage_03_feature.py
+      md5: 933addf8bb38ad11ee0cf48c2ad2d658
+      size: 2991
+    - path: src/utils/common.py
+      md5: 4fd1a06f9bac624adfbe138de29ee894
+      size: 941
+    - path: src/utils/featurize.py
+      md5: 52c829aad4c86633d9e76dde89999fa1
+      size: 497
+    params:
+      params.yaml:
+        featurize.max_features: 3000
+        featurize.ngrams: 2
+    outs:
+    - path: artifacts/features/test.pkl
+      md5: ce94443b957782a06c0e35ce5c85ec95
+      size: 3839089
+    - path: artifacts/features/train.pkl
+      md5: 7e56a7831e803a00c3359eaadde6d251
+      size: 8871217

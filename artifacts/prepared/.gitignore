@@ -1,3 +1,1 @@
-".tsv" 
-train.tsv
-test.tsv
+*.tsv 
