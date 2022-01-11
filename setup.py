@@ -15,7 +15,9 @@ LIST_OF_REQUIREMENTS = [
     "pandas",
     "numpy",
     "PyYAML",
-    "awscli"
+    "awscli",
+    "scikit-learn",
+    "scipy"
 ]
 
 
