@@ -1,5 +1,5 @@
 # add ci-cd steps here
-name: AIOps-DVC-NLP-project
+name: DVC-PROJECT-NLP
 
 on: [push]
 
